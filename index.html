@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clone OS</title>
+  <link rel="icon" href="./logo.png" />
+  <style>
+    @font-face {
+      font-family: 'DM Sans';
+      src: url('./dmsans-latin.woff2') format('woff2');
+      font-weight: 100 1000;
+      font-display: swap;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      background: #ffffff; color: #1d1d1f;
+      font-family: 'DM Sans', -apple-system, 'Hiragino Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero { display: flex; flex-direction: column; align-items: center; gap: 26px; padding: 24px; }
+    .mark { display: flex; align-items: center; gap: 14px; }
+    .mark img { width: 44px; height: 44px; }
+    .mark span { font-size: 26px; font-weight: 650; letter-spacing: -0.02em; }
+    a.dl {
+      display: inline-block; padding: 16px 44px; border-radius: 999px;
+      background: linear-gradient(180deg, #3a93ff 0%, #0071e3 100%);
+      color: #fff; font-size: 17px; font-weight: 600; text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.28);
+      transition: filter .15s ease, transform .15s ease;
+    }
+    a.dl:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    a.dl:active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="mark"><img src="./logo.png" alt="" /><span>Clone OS</span></div>
+    <a class="dl" href="https://github.com/zerogridcompany-cell/clone-os-releases/releases/download/v0.1.0/CloneAIOS-mac-arm64.zip">Download for Mac</a>
+  </main>
+</body>
+</html>
