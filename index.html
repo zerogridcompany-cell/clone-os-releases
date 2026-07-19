@@ -33,12 +33,32 @@
     }
     a.dl:hover { filter: brightness(1.05); transform: translateY(-1px); }
     a.dl:active { transform: translateY(0); }
+    code.cmd {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12.5px; color: #6e6e73;
+      background: #f5f5f7; border: 1px solid rgba(0,0,0,.08); border-radius: 999px;
+      padding: 9px 18px; cursor: pointer; transition: color .15s ease, border-color .15s ease;
+      max-width: 92vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    code.cmd:hover { color: #1d1d1f; border-color: rgba(0,0,0,.16); }
+    code.cmd.ok { color: #1a7a45; border-color: rgba(48,180,107,.4); }
   </style>
 </head>
 <body>
   <main class="hero">
     <div class="mark"><img src="./logo.png" alt="" /><span>Clone OS</span></div>
-    <a class="dl" href="https://github.com/zerogridcompany-cell/clone-os-releases/releases/download/v0.1.0/CloneAIOS-mac-arm64.zip">Download for Mac</a>
+    <a class="dl" href="#" id="dl">Download for Mac</a>
+    <code class="cmd" id="cmd" title="クリックでコピー">curl -fsSL https://zerogridcompany-cell.github.io/clone-os-releases/install.sh | bash</code>
   </main>
+  <script>
+    const CMD = 'curl -fsSL https://zerogridcompany-cell.github.io/clone-os-releases/install.sh | bash';
+    const cmd = document.getElementById('cmd');
+    cmd.onclick = async () => {
+      await navigator.clipboard.writeText(CMD);
+      cmd.classList.add('ok');
+      cmd.textContent = 'コピーしました — ターミナルに貼り付けてEnter';
+      setTimeout(() => { cmd.classList.remove('ok'); cmd.textContent = CMD; }, 2200);
+    };
+    document.getElementById('dl').onclick = (e) => { e.preventDefault(); cmd.click(); };
+  </script>
 </body>
 </html>
